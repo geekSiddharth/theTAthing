@@ -10,6 +10,7 @@ class Courses
     function __construct()
     {
         $conn = new mysqli("localhost", "root", "", "thetathing");
+
     }
 
     function selectCourse($course_id)
