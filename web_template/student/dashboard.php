@@ -1,3 +1,9 @@
+<?
+session_start();
+$email=$_SESSION["user"]["email"];
+$name=$_SESSION["user"]["name"];
+$roll_no=$_SESSION["user"]["roll_no"];
+?>
 <!doctype html>
 <!--
   Material Design Lite
@@ -74,6 +80,8 @@
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--teal-600">
           <a href="#overview" class="mdl-layout__tab is-active">Registered</a>
           <a href="#upcoming" class="mdl-layout__tab">Upcoming</a>
+          <a href="#edit" class="mdl-layout__tab">Edit Profile</a>
+          <a href="login.html" class="mdl-layout__tab">Log Out</a>
           <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
             <i class="material-icons" role="presentation">add</i>
             <span class="visuallyhidden">Create</span>
@@ -274,6 +282,50 @@
               </div>
             </div>
           </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="edit">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <form action="update.php" method="post" id="form1">
+              <div class="mdl-grid">
+                  <div class="mdl-cell mdl-cell--12-col">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                          <input class="mdl-textfield__input" type="text" value=<?echo "$name"?> id="name" name="name">
+                          <label class="mdl-textfield__label" for="name">Name</label>
+                      </div>
+                  </div>
+                  <br>
+                  <div class="mdl-cell mdl-cell--12-col">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                          <input class="mdl-textfield__input" type="text" value=<?echo "$roll_no"?> id="class" name="roll_no">
+                          <label class="mdl-textfield__label" for="class">Roll number</label>
+                      </div>
+                  </div>
+                  <br>
+                  <div class="mdl-cell mdl-cell--12-col">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                          <input class="mdl-textfield__input" type="text" id="email" value=<?echo "$email"?> name="email">
+                          <label class="mdl-textfield__label" for="email">E-mail</label>
+                      </div>
+                  </div>
+                  <br>
+                  <div class="mdl-cell mdl-cell--12-col">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                          <input class="mdl-textfield__input" type="password" id="password" name="password">
+                          <label class="mdl-textfield__label" for="password">Password</label>
+                      </div>
+                  </div>
+                  <br>
+                  <div class="mdl-cell mdl-cell--12-col">
+                      <button type="submit"
+                              class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                          Submit
+                      </button>
+                  </div>
+              </div>
+          </form>
+          </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="logout">
         </div>
         <!-- <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--middle-section">
