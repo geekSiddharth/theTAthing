@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && !empty($_GET['eventID'])) {
          * $event is an array which stores all the data
          */
 
-        echo "<h1>" . $event['course'] . "</h1>";
+        echo "<h4>" . $event['course'] . "</h4>";
         echo "To be taken by TA - " . $event['ta_name'] . "\n <br>";
         echo "Email of TA " . $event['ta_email'] . "\n <br>";
         echo "Will start at " . $event['start_time'] . "\n <br>";
@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && !empty($_GET['eventID'])) {
          * $event is an array which stores all the data
          */
 
-        echo "<h1>" . $event['course'] . "</h1>";
+        echo "<h4>" . $event['course'] . "</h4>";
         echo "To be taken by TA - " . $event['ta_name'] . "\n <br>";
         echo "Email of TA " . $event['ta_email'] . "\n <br>";
         echo "Location is " . $event['location'] . "\n <br>";
