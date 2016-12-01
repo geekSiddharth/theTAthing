@@ -120,7 +120,38 @@ limitations under the License
             <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
               <h4 class="mdl-cell mdl-cell--12-col">Past Events</h4>
               <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                <div class="section__circle-container">x/5</div>
+                <div class="section__circle-container">
+                  <canvas id="rating1" width="50" height="50"></canvas>
+                  <script>
+                    var ctx=document.getElementById("rating1")
+                    var rating = new Chart(ctx, {
+                      type: 'pie',
+                      data: {
+                        labels: ["Rating", ""],
+                        datasets: [{
+                          label: 'Rating',
+                          data=[4, 1],
+                          backgroundColor: [
+                          "#512DA8",
+                          "#FFFFFF"
+                          ]
+                        }]
+                      },
+                      options: {
+                                scales: {
+                                  yAxes: [{
+                                    gridLines: {
+                                      display:false
+                                    },
+                                    ticks: {
+                                      beginAtZero:true
+                                      }
+                                    }]
+                                  }
+                                }
+                    })
+                  </script>
+                </div>
               </div>
               <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
                 <h4>Subject | Date | Location</h4>
