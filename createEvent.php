@@ -18,21 +18,25 @@ if (!empty($_POST)) {
 
     $pdo = new PDO($dsn, $user, $pass, $opt);
 
-
+    $userID = 1;
+    $stmtCourses = $pdo->prepare('SELECT * FROM ta_course INNER JOIN courses ON courses.course_id=ta_course.course_id WHERE user_id = ? ');
+    $stmtCourses->execute([$userID]);
+    $course = $stmtCourses->fetch(PDO::FETCH_ASSOC);
     $stmtCourses = $pdo->prepare('
-    INSERT
-INTO
-  `events`(
-    `course_id`,
-    `location`,
-    `start_time`,
-    `end_time`,
-    `fixed`,
-    `feedback_id`,
-    `ta_id`,
-    `description`
-  )
-VALUES(?,?,?,?,?,?,?,?)');
+                                    INSERT
+                                INTO
+                                  `events`(
+                                    `course_id`,
+                                    `location`,
+                                    `start_time`,
+                                    `end_time`,
+                                    `feedback_id`,
+                                    `ta_id`,
+                                    `description`
+                                  )
+                                VALUES(?,?,?,?,?,?,?)');
+    $stmtCourses->execute([$course['course_id'], $_POST['location'], $_POST['start_time'], $_POST['end_time'], $userID, $_POST['description']]);
+
 } else {
 //confirm if he or she is a ta
 
@@ -55,9 +59,8 @@ VALUES(?,?,?,?,?,?,?,?)');
 
     $stmtCourses = $pdo->prepare('SELECT * FROM ta_course INNER JOIN courses ON courses.course_id=ta_course.course_id WHERE user_id = ? ');
     $stmtCourses->execute([$userID]);
-    foreach ($stmtCourses as $course) {
-        echo "Courses Name Are" . $course['name'];
-    }
+    $course = $stmtCourses->fetch(PDO::FETCH_ASSOC);
+
 
 //sugesstion for location
 //sugesstion for start time

@@ -1,9 +1,3 @@
-<html>
-<?php
-
-?>
-</html>
-
 
 <?php
 
@@ -159,6 +153,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && !empty($_GET['eventID'])) {
     }
 
 }
+
+$queryFORupcoming = "
+SELECT
+  description,
+  courses.name AS course,
+  location,
+  start_time,
+  end_time,
+  event_id,
+  Y.name AS ta_name,
+  user_id AS ta_user_id,
+  email AS ta_email,
+  dp AS ta_dp,
+  roll_no AS ta_roll_no
+FROM
+  courses
+INNER JOIN
+  (
+  SELECT
+    *
+  FROM
+    users
+  INNER JOIN
+    (
+    SELECT
+      *
+    FROM
+      `events`
+    WHERE
+      `course_id` IN(
+      SELECT DISTINCT
+        `course_id`
+      FROM
+        `student_courses`
+      WHERE
+        student_id = ?
+    )
+        AND NOT EXISTS (SELECT DISTINCT `event_id` FROM `user-topic` WHERE user_id = ?)
+  ) AS X ON X.ta_id = users.user_id
+) AS Y ON courses.course_id = Y.course_id"
 
 
 ?>
