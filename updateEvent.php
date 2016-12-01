@@ -50,9 +50,9 @@ if (!empty($_POST)) {
     <form method="post" action="updateEvent.php">
         <input type="hidden" name="eventID" value="<?php echo $eventID ?>"/>
         Start Time:<br>
-        <input type="datetime" name="start_time" value="<?php echo date($eventData['start_time']) ?>">
+        <input id="datepicker" name="start_time" value="<?php echo date($eventData['start_time']) ?>">
         End Time:<br>
-        <input type="datetime" name="end_time" value="<?php echo date($eventData['end_time']) ?>">
+        <input id="datepicker" name="end_time" value="<?php echo date($eventData['end_time']) ?>">
         Location: <br>
         <input type="text" name="location" value="<?php echo $eventData['location'] ?>">
         Description: <br>
@@ -63,3 +63,8 @@ if (!empty($_POST)) {
 
 }
 ?>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script> $(function () {
+        $("#datepicker").datepicker();
+    });</script>

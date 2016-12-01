@@ -69,52 +69,65 @@
         <div class="mdl-layout__tab-panel is-active" id="overview">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
               <form action="createEvent.php" method="post" id="form1">
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="name" name="name">
-                            <label class="mdl-textfield__label" for="course">Course Name</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="class" name="start_time">
-                            <label class="mdl-textfield__label" for="start">Start Time</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="email" name="end_time">
-                            <label class="mdl-textfield__label" for="end">End Time</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="password" name="location">
-                            <label class="mdl-textfield__label" for="location">Location</label>
-                        </div>
-                    </div>
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <div class="mdl-textfield mdl-js-textfield">
-                            <input class="mdl-textfield__input" type="text" rows="4" id="desc" name="description">
-                            <label class="mdl-textfield_input" for="desc">Description</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <button type="submit"
-                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                            Submit
-                        </button>
-                    </div>
-                </div>
-            </form>
+                  <div class="mdl-grid">
+                      <div class="mdl-cell mdl-cell--6-col">
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="time" id="starttime" name="start_time_time">
+                              <label class="mdl-textfield__label" for="starttime">Start Time</label>
+                          </div>
+                      </div>
+
+                      <div class="mdl-cell mdl-cell--6-col">
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="date" id="startdate" name="start_time_date">
+                              <label class="mdl-textfield__label" for="startdate">Start Date</label>
+                          </div>
+                      </div>
+
+                      <br>
+                      <div class="mdl-cell mdl-cell--6-col">
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="time" id="endtime" name="end_time_time">
+                              <label class="mdl-textfield__label" for="endtime">End Time</label>
+                          </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--6-col">
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="date" id="enddate" name="end_time_date">
+                              <label class="mdl-textfield__label" for="enddate">End Time</label>
+                          </div>
+                      </div>
+                      <br>
+                      <div class="mdl-cell mdl-cell--12-col">
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield">
+                              <input class="mdl-textfield__input" type="text" id="location" name="location">
+                              <label class="mdl-textfield__label" for="location">Location</label>
+                          </div>
+                      </div>
+                      <div class="mdl-cell mdl-cell--12-col">
+                          <div class="mdl-textfield mdl-js-textfield">
+                              <input class="mdl-textfield__input" type="text" rows="4" id="desc" name="desc">
+                              <label class="mdl-textfield_input" for="desc">Description</label>
+                          </div>
+                      </div>
+                      <br>
+                      <div class="mdl-cell mdl-cell--12-col">
+                          <button type="submit"
+                                  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                              Submit
+                          </button>
+                      </div>
+                  </div>
+
+              </form>
           </section>
           </main>
         </div>
         <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-      </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script> $(function () {
+    $("#datepicker").datepicker();
+});</script>
+
+</body>
     </html>
